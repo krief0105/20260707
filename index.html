@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>足球無人機世界</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <h1>⚽ 足球無人機世界 🚁</h1>
+
+    <p>藍白機器貓風格足球科技網站</p>
+
+</header>
+
+<nav>
+
+    <a href="#">首頁</a>
+
+    <a href="#">產品</a>
+
+    <a href="#">足球功能</a>
+
+    <a href="#">影片</a>
+
+    <a href="#">聯絡我們</a>
+
+</nav>
+
+<section class="hero">
+
+    <h2>未來足球 × AI 無人機</h2>
+
+    <p>
+        自動追蹤足球、AI辨識球員、
+        4K空拍、智慧飛行
+    </p>
+
+    <button>立即探索</button>
+
+</section>
+
+<section class="cards">
+
+    <div class="card">
+        <h3>⚽ 足球追蹤</h3>
+        <p>AI自動鎖定足球。</p>
+    </div>
+
+    <div class="card">
+        <h3>🚁 穩定飛行</h3>
+        <p>GPS定位、自動返航。</p>
+    </div>
+
+    <div class="card">
+        <h3>📸 4K錄影</h3>
+        <p>高速60FPS錄影。</p>
+    </div>
+
+</section>
+
+<footer>
+
+©2026 足球無人機世界
+
+</footer>
+
+</body>
+</html>
+body{
+
+margin:0;
+
+font-family:Arial;
+
+background:#E3F7FF;
+
+}
+
+header{
+
+background:#00AEEF;
+
+color:white;
+
+text-align:center;
+
+padding:30px;
+
+}
+
+nav{
+
+display:flex;
+
+justify-content:center;
+
+background:white;
+
+padding:15px;
+
+}
+
+nav a{
+
+text-decoration:none;
+
+color:#0088cc;
+
+margin:15px;
+
+font-weight:bold;
+
+}
+
+.hero{
+
+text-align:center;
+
+padding:80px;
+
+background:linear-gradient(#AEE8FF,#FFFFFF);
+
+}
+
+.hero h2{
+
+font-size:45px;
+
+color:#0077B6;
+
+}
+
+.hero p{
+
+font-size:22px;
+
+}
+
+button{
+
+background:#FF4040;
+
+color:white;
+
+border:none;
+
+padding:15px 35px;
+
+font-size:20px;
+
+border-radius:30px;
+
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#ff2222;
+
+}
+
+.cards{
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+padding:50px;
+
+flex-wrap:wrap;
+
+}
+
+.card{
+
+background:white;
+
+width:280px;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:0px 5px 15px rgba(0,0,0,.2);
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+}
+
+footer{
+
+background:#00AEEF;
+
+color:white;
+
+text-align:center;
+
+padding:20px;
+
+margin-top:50px;
+
+}
+<script src="script.js"></script>
+// ============================
+// 足球無人機網站 JavaScript
+// ============================
+
+// 網站載入動畫
+window.onload = function () {
+    alert("🚁 歡迎來到足球無人機世界！");
+};
+
+// ============================
+// 深色模式
+// ============================
+
+const darkButton = document.createElement("button");
+
+darkButton.innerHTML = "🌙 深色模式";
+
+darkButton.style.position = "fixed";
+darkButton.style.bottom = "20px";
+darkButton.style.right = "20px";
+darkButton.style.padding = "15px";
+darkButton.style.borderRadius = "30px";
+darkButton.style.border = "none";
+darkButton.style.background = "#0077B6";
+darkButton.style.color = "white";
+darkButton.style.cursor = "pointer";
+
+document.body.appendChild(darkButton);
+
+let dark = false;
+
+darkButton.onclick = function(){
+
+    dark = !dark;
+
+    if(dark){
+
+        document.body.style.background="#222";
+        document.body.style.color="white";
+
+    }else{
+
+        document.body.style.background="#E3F7FF";
+        document.body.style.color="black";
+
+    }
+
+}
+
+// ============================
+// 英雄區按鈕動畫
+// ============================
+
+const heroButton = document.querySelector(".hero button");
+
+heroButton.onclick = function(){
+
+    heroButton.innerHTML="🚀 起飛中...";
+
+    setTimeout(function(){
+
+        heroButton.innerHTML="✅ 已起飛";
+
+    },2000);
+
+}
+
+// ============================
+// AI資訊卡
+// ============================
+
+const aiCard=document.createElement("div");
+
+aiCard.className="card";
+
+aiCard.innerHTML=`
+
+<h3>🤖 AI分析</h3>
+
+<p id="aiText">
+
+等待分析...
+
+</p>
+
+`;
+
+document.querySelector(".cards").appendChild(aiCard);
+
+const messages=[
+
+"AI已鎖定足球 ⚽",
+
+"辨識22名球員",
+
+"飛行高度 35 公尺",
+
+"GPS定位成功",
+
+"4K錄影中",
+
+"AI避障啟動",
+
+"即時傳輸完成"
+
+];
+
+let index=0;
+
+setInterval(function(){
+
+document.getElementById("aiText").innerHTML=messages[index];
+
+index++;
+
+if(index>=messages.length){
+
+index=0;
+
+}
+
+},2000);
+
+// ============================
+// 飛行時間
+// ============================
+
+const timer=document.createElement("h3");
+
+timer.style.textAlign="center";
+
+timer.style.marginTop="30px";
+
+document.body.appendChild(timer);
+
+let seconds=0;
+
+setInterval(function(){
+
+seconds++;
+
+timer.innerHTML="🚁 飛行時間："+seconds+" 秒";
+
+},1000);
+
+// ============================
+// 卡片動畫
+// ============================
+
+const cards=document.querySelectorAll(".card");
+
+cards.forEach(function(card){
+
+card.addEventListener("mouseover",function(){
+
+card.style.transform="scale(1.05)";
+
+});
+
+card.addEventListener("mouseout",function(){
+
+card.style.transform="scale(1)";
+
+});
+
+});
+
+// ============================
+// 隨機背景顏色
+// ============================
+
+const colors=[
+
+"#E3F7FF",
+
+"#D9F9FF",
+
+"#F4FDFF",
+
+"#E8F5E9",
+
+"#FFF8E1"
+
+];
+
+setInterval(function(){
+
+if(!dark){
+
+document.body.style.background=
+
+colors[Math.floor(Math.random()*colors.length)];
+
+}
+
+},8000);
+
+// ============================
+// 足球旋轉動畫
+// ============================
+
+const ball=document.createElement("div");
+
+ball.innerHTML="⚽";
+
+ball.style.position="fixed";
+
+ball.style.left="20px";
+
+ball.style.bottom="120px";
+
+ball.style.fontSize="60px";
+
+document.body.appendChild(ball);
+
+let x=20;
+
+setInterval(function(){
+
+x+=8;
+
+ball.style.left=x+"px";
+
+ball.style.transform="rotate("+x*8+"deg)";
+
+if(x>window.innerWidth){
+
+x=-100;
+
+}
+
+},30);
+
+// ============================
+// 網站資訊
+// ============================
+
+console.log("足球無人機網站 已啟動");
+console.log("版本：1.0");
+console.log("AI模式：ON");
+console.log("GPS模式：ON");
+console.log("足球辨識：ON");
+<section class="dashboard">
+
+    <h2>🚁 飛行控制中心</h2>
+
+    <div class="panel">
+
+        <div class="meter">
+            <h3>高度</h3>
+            <p id="height">0 m</p>
+        </div>
+
+        <div class="meter">
+            <h3>速度</h3>
+            <p id="speed">0 km/h</p>
+        </div>
+
+        <div class="meter">
+            <h3>電量</h3>
+            <p id="battery">100%</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="field">
+
+    <div id="drone">🚁</div>
+
+    <div id="ball">⚽</div>
+
+</section>
+.dashboard{
+
+padding:50px;
+
+text-align:center;
+
+background:#D8F3FF;
+
+}
+
+.panel{
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+}
+
+.meter{
+
+background:white;
+
+padding:20px;
+
+width:180px;
+
+border-radius:20px;
+
+box-shadow:0 5px 12px rgba(0,0,0,.2);
+
+}
+
+.field{
+
+position:relative;
+
+margin:40px auto;
+
+width:90%;
+
+height:500px;
+
+background:#4CAF50;
+
+border:8px solid white;
+
+border-radius:20px;
+
+overflow:hidden;
+
+}
+
+#drone{
+
+position:absolute;
+
+font-size:60px;
+
+left:100px;
+
+top:100px;
+
+transition:.15s;
+
+}
+
+#ball{
+
+position:absolute;
+
+font-size:45px;
+
+left:700px;
+
+top:250px;
+
+}
+// ======================
+// 儀表板
+// ======================
+
+let h = 0;
+let s = 0;
+let b = 100;
+
+setInterval(function(){
+
+    h = Math.floor(Math.random()*80+20);
+
+    s = Math.floor(Math.random()*50+10);
+
+    b--;
+
+    if(b<0){
+
+        b=100;
+
+    }
+
+    document.getElementById("height").innerHTML=h+" m";
+
+    document.getElementById("speed").innerHTML=s+" km/h";
+
+    document.getElementById("battery").innerHTML=b+"%";
+
+},1000);
+
+// ======================
+// 無人機控制
+// ======================
+
+const drone=document.getElementById("drone");
+
+let dx=100;
+let dy=100;
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key==="ArrowUp") dy-=20;
+
+    if(e.key==="ArrowDown") dy+=20;
+
+    if(e.key==="ArrowLeft") dx-=20;
+
+    if(e.key==="ArrowRight") dx+=20;
+
+    drone.style.left=dx+"px";
+
+    drone.style.top=dy+"px";
+
+});
+
+// ======================
+// 足球移動
+// ======================
+
+const football=document.getElementById("ball");
+
+setInterval(function(){
+
+    let x=Math.random()*800;
+
+    let y=Math.random()*350;
+
+    football.style.left=x+"px";
+
+    football.style.top=y+"px";
+
+},3000);
+
+// ======================
+// 自動追蹤
+// ======================
+
+setInterval(function(){
+
+    let bx=football.offsetLeft;
+
+    let by=football.offsetTop;
+
+    dx+=(bx-dx)/12;
+
+    dy+=(by-dy)/12;
+
+    drone.style.left=dx+"px";
+
+    drone.style.top=dy+"px";
+
+},60);
